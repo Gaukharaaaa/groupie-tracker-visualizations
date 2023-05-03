@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/ui/css/style.css">
+    <link rel="shortcut icon" href="/ui/img/logo.jpg" type="image/x-icon">
+    <title>Artist</title>
+</head>
+<body class="page">
+  <div class="container_artist">
+      
+      <div class="bblock">
+        <img src="{{.ArtistPage.Image}}" alt="alternatetext"> <br>
+      </div>
+      <div class="name">
+        <span> <strong>Group Name:</strong> </span>   
+        {{ .ArtistPage.Name }}
+      </div>
+      <div class="members">
+        <span><strong>Group Members:</strong>  </span>
+        {{ range .ArtistPage.Members}}
+        <li>
+          {{ . }}
+          <br>
+        </li>
+        {{ end }}   
+      </div>
+      <div class="firstAlbum">
+        <span><strong>First Album release:</strong>  </span>
+        {{ .ArtistPage.FirstAlbum }}
+      </div>
+    
+      <div class="creationdate">
+        <span><strong>Creation Date:</strong>       </span>
+        {{  .ArtistPage.CreationDate }}
+      </div>
+      <div class="locations">
+        <span><strong>Locations:</strong> </span>
+        <br>
+          {{ range $city, $locations := .Rel.DatesLocations}}
+          <li><strong>City</strong> 
+            <ul>
+              <li>{{ $city }}</li>
+            </ul>
+          </li>
+          <li><strong>Date</strong> 
+            <ul>
+              {{ range $locations }}
+              <ul><li>{{.}};</li></ul>
+              {{end}}
+            </ul>
+          </li>
+        {{end}}
+      </div>
+      <footer>
+        
+        <div class="footer_artist">
+          <a href="/">
+            <button class="text-center"><strong>Back to Main Page</strong></button> 
+          </a>
+        
+        </div>
+      </footer>
+  </div>
+  
+</body>
+</html>

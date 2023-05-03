@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/ui/css/style.css">
+    <link rel="shortcut icon" href="/ui/img/logo.jpg" type="image/x-icon">
+    <title>Groupie Tracker</title>
+</head>
+<body>
+    <div class="container">
+        <div class="mainpage">
+            <h2 class="title">Groupie-Tracker Visualization</h2>
+            <div class="row">
+                {{range .}}    
+                <div class="column">
+                    <a href="/artist?id={{.Id}}" >
+                        <img src="{{.Image}}" alt=""><br>
+                        {{.Name}}
+                            
+                    </a>
+                </div>
+                {{end}}
+            </div>
+        </div>
+       <footer class="footers">
+             <a class="center" href="https://01.alem.school/intra/alem/div-01/visualizations?event=599">
+                 <button class="text-center"><strong>About This Project</strong></button> 
+            </a>    
+        </footer>
+    </div>
+</body>
+</html>
